@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Plant Disease Prediction{% endblock %}
+
+{% block content %}
+    <h1>Plant Disease Prediction</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*" required>
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction %}
+    <div class="result">
+        <h2>Prediction: {{ prediction }}</h2>
+        <img src="{{ image_path }}" alt="Uploaded Image" style="max-width: 300px;">
+    </div>
+    {% endif %}
+{% endblock %}

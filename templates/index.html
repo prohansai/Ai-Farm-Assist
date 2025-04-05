@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}AI Farm Assist{% endblock %}
+
+{% block content %}
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to AI Farm Assist</h1>
+            <p>Your one-stop solution for smart farming with AI-powered Crop and Fertilizer recommendations!</p>
+        </div>
+    </section>
+
+    
+    <section class="about">
+        <h2>About AI Farm Assist</h2>
+        <p>AI Farm Assist is a cutting-edge platform that leverages artificial intelligence to help farmers make informed decisions for their crops. Whether you're looking for the best crop for your soil or want to optimize fertilizer usage, our AI model provides precise recommendations based on weather, soil type, and more.</p>
+    </section>
+
+    
+    <section class="features">
+        <h2>Features</h2>
+        <div class="feature">
+            <img src="../static/crop-recommendation.png" alt="Crop Recommendation">
+            <h3>Crop Recommendation</h3>
+            <p>Get tailored recommendations for the most suitable crops based on your soil and climate conditions.</p>
+        </div>
+        <div class="feature">
+            <img src="../static/fertilizer-recommendation.png" alt="Fertilizer Recommendation">
+            <h3>Fertilizer Recommendation</h3>
+            <p>Find out the exact type and amount of fertilizer you need to maximize crop yield and improve soil health.</p>
+        </div>
+        <div class="feature">
+            <img src="../static/plant.png" alt="Plant Leaf Disease Prediction">
+            <h3>Plant Leaf Disease Prediction</h3>
+            <p>Upload an image of a plant leaf to detect diseases early and get AI-powered recommendations for treatment.</p>
+        </div>
+    </section>
+
+    
+    <section class="cta">
+        <h2>Start Your Farming Journey Today!</h2>
+        <p>Explore the power of AI for farming. Use our crop and fertilizer recommendation tools to make your farm smarter and more productive.</p>
+        <a href="/crop_recommendation" class="btn">Start Crop Recommendation</a>
+        <a href="/fertilizer_prediction" class="btn">Start Fertilizer Recommendation</a>
+        <a href="/plant_disease_prediction" class="btn">Detect Plant Disease</a>
+    </section>
+
+    
+    <footer>
+        <p>&copy; 2025 AI Farm Assist. All rights reserved.</p>
+    </footer>
+{% endblock %}

@@ -1,0 +1,50 @@
+
+{% extends "base.html" %}
+
+{% block title %}Fertilizer Prediction{% endblock %}
+
+{% block content %}
+    <h1></h1>
+    <h1>Fertilizer Prediction</h1>
+    <form action="/fertilizer_prediction" method="POST">
+        <label for="temp">Temperature (°C):</label>
+        <input type="number" name="temp" required>
+
+        <label for="humidity">Humidity (%):</label>
+        <input type="number" name="humidity" required>
+
+        <label for="moisture">Moisture (%):</label>
+        <input type="number" name="moisture" required>
+
+        <label for="soil_type">Soil Type:</label>
+        <select name="soil_type" required>
+            {% for soil in soil_types %}
+                <option value="{{ soil }}" {% if soil == selected_soil %}selected{% endif %}>{{ soil }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="crop_type">Crop Type:</label>
+        <select name="crop_type" required>
+            {% for crop in crop_types %}
+                <option value="{{ crop }}" {% if crop == selected_crop %}selected{% endif %}>{{ crop }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="n">Nitrogen Content (mg/kg):</label>
+        <input type="number" name="n" required>
+
+        <label for="p">Phosphorous Content (mg/kg):</label>
+        <input type="number" name="p" required>
+
+        <label for="k">Potassium Content (mg/kg):</label>
+        <input type="number" name="k" required>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if fertilizer %}
+    <div class="result">
+        <p><strong>Recommended Fertilizer:</strong> {{ fertilizer }}</p>
+    </div>
+    {% endif %}
+{% endblock %}

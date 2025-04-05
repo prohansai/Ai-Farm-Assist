@@ -1,0 +1,37 @@
+
+{% extends "base.html" %}
+
+{% block title %}Crop Recommendation System{% endblock %}
+
+{% block content %}
+    <h1>Crop Recommendation System</h1>
+    <form action="/crop_recommendation" method="POST">
+        <label for="N">Nitrogen (N):</label>
+        <input type="text" id="N" name="N" required>
+        
+        <label for="P">Phosphorus (P):</label>
+        <input type="text" id="P" name="P" required>
+
+        <label for="K">Potassium (K):</label>
+        <input type="text" id="K" name="K" required>
+
+        <label for="temperature">Temperature (°C):</label>
+        <input type="text" id="temperature" name="temperature" required>
+
+        <label for="humidity">Humidity (%):</label>
+        <input type="text" id="humidity" name="humidity" required>
+
+        <label for="ph">Soil pH:</label>
+        <input type="text" id="ph" name="ph" required>
+
+        <label for="rainfall">Rainfall (mm):</label>
+        <input type="text" id="rainfall" name="rainfall" required>
+
+        <input type="submit" value="Get Recommendation">
+    </form>
+    {% if prediction_text %}
+    <div class="result">
+        <p>{{ prediction_text }}</p>
+    </div>
+    {% endif %}
+{% endblock %}

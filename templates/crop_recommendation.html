@@ -6,13 +6,13 @@
 {% block content %}
     <h1>Crop Recommendation System</h1>
     <form action="/crop_recommendation" method="POST">
-        <label for="N">Nitrogen (N):</label>
+        <label for="N">Nitrogen (N) (kg/hectare):</label>
         <input type="text" id="N" name="N" required>
         
-        <label for="P">Phosphorus (P):</label>
+        <label for="P">Phosphorus (P) (kg/hectare):</label>
         <input type="text" id="P" name="P" required>
 
-        <label for="K">Potassium (K):</label>
+        <label for="K">Potassium (K) (kg/hectare):</label>
         <input type="text" id="K" name="K" required>
 
         <label for="temperature">Temperature (°C):</label>

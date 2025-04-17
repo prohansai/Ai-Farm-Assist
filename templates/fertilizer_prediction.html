@@ -1,50 +1,48 @@
-
 {% extends "base.html" %}
 
-{% block title %}Fertilizer Prediction{% endblock %}
-
+{% block title %}Crop Recommendation System{% endblock %}
+<br><br><br>
 {% block content %}
-    <h1></h1>
-    <h1>Fertilizer Prediction</h1>
-    <form action="/fertilizer_prediction" method="POST">
-        <label for="temp">Temperature (°C):</label>
-        <input type="number" name="temp" required>
+<h1>Fertilizer Prediction System</h1>
+<form action="/fertilizer_prediction" method="POST">
+    <label for="temperature">Temperature:</label>
+    <input type="text" id="temperature" name="temperature" required><br>
 
-        <label for="humidity">Humidity (%):</label>
-        <input type="number" name="humidity" required>
+    <label for="humidity">Humidity:</label>
+    <input type="text" id="humidity" name="humidity" required><br>
 
-        <label for="moisture">Moisture (%):</label>
-        <input type="number" name="moisture" required>
+    <label for="moisture">Moisture:</label>
+    <input type="text" id="moisture" name="moisture" required><br>
 
-        <label for="soil_type">Soil Type:</label>
-        <select name="soil_type" required>
-            {% for soil in soil_types %}
-                <option value="{{ soil }}" {% if soil == selected_soil %}selected{% endif %}>{{ soil }}</option>
-            {% endfor %}
-        </select>
+    <label for="soil_type">Soil Type:</label>
+    <select id="soil_type" name="soil_type" required>
+        {% for soil in soil_dict %}
+        <option value="{{ loop.index0 }}">{{ soil }}</option>
+        {% endfor %}
+    </select><br>
 
-        <label for="crop_type">Crop Type:</label>
-        <select name="crop_type" required>
-            {% for crop in crop_types %}
-                <option value="{{ crop }}" {% if crop == selected_crop %}selected{% endif %}>{{ crop }}</option>
-            {% endfor %}
-        </select>
+    <label for="crop_type">Crop Type:</label>
+    <select id="crop_type" name="crop_type" required>
+        {% for crop in crop_dict %}
+        <option value="{{ loop.index0 }}">{{ crop }}</option>
+        {% endfor %}
+    </select><br>
 
-        <label for="n">Nitrogen Content (kg/hectare):</label>
-        <input type="number" name="n" required>
+    <label for="nitrogen">Nitrogen:</label>
+    <input type="text" id="nitrogen" name="nitrogen" required><br>
 
-        <label for="p">Phosphorous Content (kg/hectare):</label>
-        <input type="number" name="p" required>
+    <label for="phosphorus">Phosphorus:</label>
+    <input type="text" id="phosphorus" name="phosphorus" required><br>
 
-        <label for="k">Potassium Content (kg/hectare):</label>
-        <input type="number" name="k" required>
+    <label for="potassium">Potassium:</label>
+    <input type="text" id="potassium" name="potassium" required><br>
 
-        <button type="submit">Predict</button>
-    </form>
+    <input type="submit" value="Submit">
+</form>
 
-    {% if fertilizer %}
-    <div class="result">
-        <p><strong>Recommended Fertilizer:</strong> {{ fertilizer }}</p>
-    </div>
-    {% endif %}
+{% if prediction %}
+<div class="result">
+    <p>Fertilizer Recommendation: <strong>{{ prediction }}</strong></p>
+</div>
+{% endif %}
 {% endblock %}
